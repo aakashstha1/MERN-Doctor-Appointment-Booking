@@ -3,6 +3,8 @@ import ServiceSection1 from "../components/Services/ServiceSection1";
 import About from "../components/About/About";
 import ServiceSection2 from "../components/Services/ServiceSection2";
 import Feature from "../components/Features/Feature";
+import FaqList from "../components/FAQ/FaqList";
+import OurGreatDoctors from "../components/Doctors/OurGreatDoctors";
 function Home() {
   return (
     <>
@@ -11,6 +13,8 @@ function Home() {
       <About />
       <ServiceSection2 />
       <Feature />
+      <OurGreatDoctors />
+      <FaqList />
     </>
   );
 }
