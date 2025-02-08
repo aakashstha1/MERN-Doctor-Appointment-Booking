@@ -51,7 +51,9 @@ function Header() {
         <div className="flex items-center justify-between">
           {/* === Logo === */}
           <div>
-            <img src={logo} alt="" />
+            <Link to={"/"}>
+              <img src={logo} alt="" />
+            </Link>
           </div>
 
           {/* === Menu === */}
