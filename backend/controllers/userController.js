@@ -5,7 +5,6 @@ import bcryptjs from "bcryptjs";
 export const updateUser = async (req, res) => {
   const id = req.params.id;
   try {
-
     //If password is being updated it will hash the password first and then update
     if (req.body.password) {
       const salt = await bcryptjs.genSalt(10);
@@ -85,3 +84,37 @@ export const getAllUser = async (req, res) => {
     });
   }
 };
+
+
+//Get user Profile Information
+export const getUserProfile = async (req, res) => {
+  const userId = req.userId;
+
+  try {
+    const user = await User.findById(userId);
+
+    if (!user) {
+      return res
+        .status(404)
+        .json({ success: false, message: "User not found" });
+    }
+
+    const { password, ...rest } = user._doc;
+
+    res
+      .status(200)
+      .json({
+        success: true,
+        message: "Getting profie info",
+        data: { ...rest },
+      });
+  } catch (error) {
+    res.status(500).json({ success: false, message: "Something went wrong!" });
+  }
+};
+
+
+//Get user appintment schedule
+export const getMyAppointments = async(req,res)=>{
+  
+}

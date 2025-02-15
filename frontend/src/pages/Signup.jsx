@@ -1,6 +1,6 @@
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import { Link, useNavigate } from "react-router-dom";
-import avatar from "../assets/images/doctor-img01.png";
+// import avatar from "../assets/images/doctor-img01.png";
 import { useState } from "react";
 import uploadImage from "../utils/uploadCloudinary";
 import { BASE_URL } from "../config";
