@@ -1,6 +1,7 @@
 import User from "../models/UserSchema.js";
 import bcryptjs from "bcryptjs";
-
+import Booking from "../models/BookingSchema.js";
+import Doctor from "../models/DoctorSchema.js";
 //Update user
 export const updateUser = async (req, res) => {
   const id = req.params.id;
@@ -85,7 +86,6 @@ export const getAllUser = async (req, res) => {
   }
 };
 
-
 //Get user Profile Information
 export const getUserProfile = async (req, res) => {
   const userId = req.userId;
@@ -101,20 +101,33 @@ export const getUserProfile = async (req, res) => {
 
     const { password, ...rest } = user._doc;
 
-    res
-      .status(200)
-      .json({
-        success: true,
-        message: "Getting profie info",
-        data: { ...rest },
-      });
+    res.status(200).json({
+      success: true,
+      message: "Getting profie info",
+      data: { ...rest },
+    });
   } catch (error) {
     res.status(500).json({ success: false, message: "Something went wrong!" });
   }
 };
 
-
 //Get user appintment schedule
-export const getMyAppointments = async(req,res)=>{
-  
-}
+export const getMyAppointments = async (req, res) => {
+  try {
+    const bookings = await Booking.find({ user: req.userId });
+
+    const doctorIds = bookings.map((el) => el.doctor.id);
+
+    const doctors = await Doctor.find({ _id: { $in: doctorIds } }).select(
+      "-password"
+    );
+
+    res.status(200).json({
+      success: true,
+      message: "Appointments are getting",
+      data: doctors,
+    });
+  } catch (err) {
+    res.status(500).json({ success: false, message: "Something went wrong!" });
+  }
+};
