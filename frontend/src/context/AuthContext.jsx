@@ -5,8 +5,8 @@ const initialState = {
     localStorage.getItem("user") !== undefined
       ? JSON.parse(localStorage.getItem("user"))
       : null,
-  role: localStorage.getItem("role") || null,
-  token: localStorage.getItem("token") || null,
+  role: localStorage.getItem("role") ?? null,
+  token: localStorage.getItem("token") ?? null,
 };
 
 export const authContext = createContext(initialState);
@@ -19,6 +19,7 @@ const authReducer = (state, action) => {
       };
 
     case "LOGIN_SUCCESS":
+      // console.log("Payload received in LOGIN_SUCCESS:", action.payload);
       return {
         user: action.payload.user,
         role: action.payload.role,

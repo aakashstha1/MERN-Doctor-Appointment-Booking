@@ -105,7 +105,7 @@ export const login = async (req, res) => {
     const token = generateToken(user);
 
     // Exclude sensitive fields before sending response
-    const { password, role, appointent, ...rest } = user._doc;
+    const { password, appointent, ...rest } = user._doc;
 
     res.status(200).json({
       success: true,

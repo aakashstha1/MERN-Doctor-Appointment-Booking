@@ -32,6 +32,7 @@ function Login() {
       });
 
       const result = await res.json();
+      console.log(result);
 
       if (!res.ok) {
         throw new Error(result.message);
@@ -42,7 +43,7 @@ function Login() {
         payload: {
           user: result.data,
           token: result.token,
-          role: result.role,
+          role: result.data.role,
         },
       });
 
