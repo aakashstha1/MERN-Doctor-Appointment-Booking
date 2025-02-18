@@ -111,7 +111,7 @@ export const getUserProfile = async (req, res) => {
   }
 };
 
-//Get user appintment schedule
+//Get user appointment schedule
 export const getMyAppointments = async (req, res) => {
   try {
     const bookings = await Booking.find({ user: req.userId });
