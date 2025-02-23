@@ -109,7 +109,7 @@ export const getDoctorProfile = async (req, res) => {
   try {
     const doctor = await Doctor.findById(doctorId);
 
-    if (!user) {
+    if (!doctor) {
       return res
         .status(404)
         .json({ success: false, message: "Doctor not found" });
@@ -120,7 +120,7 @@ export const getDoctorProfile = async (req, res) => {
 
     res.status(200).json({
       success: true,
-      message: "Getting profie info",
+      message: "Getting profile info",
       data: { ...rest, appointments },
     });
   } catch (error) {
