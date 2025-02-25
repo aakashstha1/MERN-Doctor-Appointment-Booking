@@ -32,7 +32,7 @@ function Login() {
       });
 
       const result = await res.json();
-      console.log(result);
+      // console.log(result);
 
       if (!res.ok) {
         throw new Error(result.message);
@@ -47,7 +47,7 @@ function Login() {
         },
       });
 
-      console.log(result, "login data");
+      // console.log(result, "login data");
 
       setLoading(false);
 
