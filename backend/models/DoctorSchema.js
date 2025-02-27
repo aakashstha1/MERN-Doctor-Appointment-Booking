@@ -31,7 +31,7 @@ const DoctorSchema = new mongoose.Schema({
   specialization: {
     type: String,
   },
-  qualification: {
+  qualifications: {
     type: Array,
   },
   experiences: {

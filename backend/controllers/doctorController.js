@@ -26,7 +26,7 @@ export const updateDoctor = async (req, res) => {
   } catch (error) {
     res.status(500).json({
       success: false,
-      message: "Fialed to update",
+      message: "Failed to update",
     });
   }
 };
@@ -39,12 +39,12 @@ export const deleteDoctor = async (req, res) => {
 
     res.status(200).json({
       success: true,
-      message: "Succesfully deleted",
+      message: "Successfully deleted",
     });
   } catch (error) {
     res.status(500).json({
       success: false,
-      message: "Fialed to delete",
+      message: "Failed to delete",
     });
   }
 };

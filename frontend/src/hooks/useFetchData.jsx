@@ -13,9 +13,8 @@ function useFetchData(url) {
           headers: { Authorization: `Bearer ${token}` },
         });
         const result = await res.json();
-
         if (!res.ok) {
-          throw new Error(result.message);
+          throw new Error(result.message || "Failed to fetch data");
         }
         setData(result);
         setLoading(false);
@@ -26,7 +25,6 @@ function useFetchData(url) {
     };
     fetchData();
   }, [url]);
-  
 
   return { data, error, loading };
 }

@@ -93,7 +93,7 @@ function Signup() {
                   name="name"
                   value={formData.name}
                   onChange={handleInputChange}
-                  className="w-full  py-3 border-b border-solid border-[#0066ff61] focus:outline-none focus:border-b-primaryColor text-[18px] leading-5 text-headingColor placeholder:text-textColor  cursor-pointer "
+                  className="w-full py-3 border-b border-solid border-[#0066ff61] focus:outline-none focus:border-b-primaryColor text-[20px] leading-5 text-headingColor placeholder:text-textColor cursor-pointer "
                   required
                 />
               </div>
@@ -105,7 +105,7 @@ function Signup() {
                   name="email"
                   value={formData.email}
                   onChange={handleInputChange}
-                  className="w-full  py-3 border-b border-solid border-[#0066ff61] focus:outline-none focus:border-b-primaryColor text-[18px] leading-5 text-headingColor placeholder:text-textColor  cursor-pointer "
+                  className="w-full py-3 border-b border-solid border-[#0066ff61] focus:outline-none focus:border-b-primaryColor text-[20px] leading-5 text-headingColor placeholder:text-textColor cursor-pointer "
                   required
                 />
               </div>
@@ -117,7 +117,7 @@ function Signup() {
                   name="password"
                   value={formData.password}
                   onChange={handleInputChange}
-                  className="w-full  py-3 border-b border-solid border-[#0066ff61] focus:outline-none focus:border-b-primaryColor text-[18px] leading-5 text-headingColor placeholder:text-textColor  cursor-pointer "
+                  className="w-full  py-3 border-b border-solid border-[#0066ff61] focus:outline-none focus:border-b-primaryColor text-[20px] leading-5 text-headingColor placeholder:text-textColor  cursor-pointer "
                   required
                 />
               </div>
