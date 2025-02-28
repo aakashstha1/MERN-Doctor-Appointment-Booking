@@ -89,9 +89,9 @@ function Header() {
                       : "/users/profile/me"
                   }`}
                 >
-                  <figure className="w-[35px] h-[35px] rounded-full cursor-pointer">
+                  <figure className="w-[35px] h-[35px] rounded-full cursor-pointer overflow-hidden">
                     <img
-                      className="w-full rounded-full"
+                      className="w-full rounded-full object-cover"
                       src={user?.photo}
                       alt=""
                     />

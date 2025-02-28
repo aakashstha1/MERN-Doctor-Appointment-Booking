@@ -17,7 +17,12 @@ createRoot(document.getElementById("root")).render(
               background: "#333",
               color: "#fff",
               fontSize: "18px",
+              zIndex: 9999,
             },
+            position: "bottom-center",
+          }}
+          containerStyle={{
+            bottom: "60px",
           }}
         />
       </AuthContextProvider>

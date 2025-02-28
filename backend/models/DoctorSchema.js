@@ -20,6 +20,8 @@ const DoctorSchema = new mongoose.Schema({
   photo: {
     type: String,
   },
+  gender: { type: String, enum: ["male", "female"] },
+
   ticketPrice: {
     type: Number,
   },
