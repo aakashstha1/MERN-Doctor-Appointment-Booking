@@ -48,7 +48,11 @@ body {
     line-height: 30px;
   }
 
-  .show_menu{
+  .show_menu {
     display: block;
   }
+}
+
+#__react-hot-toast {
+  z-index: 9999 !important;
 }

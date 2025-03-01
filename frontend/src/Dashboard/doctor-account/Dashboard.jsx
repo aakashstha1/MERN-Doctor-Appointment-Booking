@@ -7,6 +7,7 @@ import { useState } from "react";
 import star from "../../assets/images/star.png";
 import DoctorAbout from "../../pages/Doctors/DoctorAbout";
 import Profile from "./Profile";
+import Appointments from "./Appointments";
 
 function Dashboard() {
   const { data, loading, error } = useGetProfile(
@@ -50,11 +51,11 @@ function Dashboard() {
                 {tab === "overview" && (
                   <div>
                     <div className="flex items-center gap-4 mb-10">
-                      <figure className="max-w-[200px] max-h-[200px]">
+                      <figure className="max-w-[200px] max-h-[200px] overflow-hidden">
                         <img
                           src={data?.data?.photo}
                           alt=""
-                          className="w-full"
+                          className="w-full object-cover"
                         />
                       </figure>
                       <div>
@@ -86,8 +87,12 @@ function Dashboard() {
                     />
                   </div>
                 )}
-                {tab === "appointments" && <div>appointments</div>}
-                {tab === "settings" && <Profile doctorData={data} />}
+                {tab === "appointments" && (
+                  <Appointments appointments={data?.data?.appointments || []} />
+                )}
+                {tab === "settings" && (
+                  <Profile doctorData={data?.data || {}} />
+                )}
               </div>
             </div>
           </div>

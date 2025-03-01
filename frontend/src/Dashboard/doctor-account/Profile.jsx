@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AiOutlineDelete } from "react-icons/ai";
 import uploadImage from "../../utils/uploadCloudinary";
 import { BASE_URL, token } from "../../config";
@@ -20,7 +20,24 @@ function Profile({ doctorData }) {
     about: "",
     photo: null,
   });
-  console.log(doctorData.data);
+
+  useEffect(() => {
+    setFormData({
+      name: doctorData?.name,
+      email: doctorData?.email,
+      phone: doctorData?.phone,
+      bio: doctorData?.bio,
+      gender: doctorData?.gender,
+      specialization: doctorData?.specialization,
+      ticketPrice: doctorData?.ticketPrice,
+      qualifications: doctorData?.qualifications,
+      experiences: doctorData?.experiences,
+      timeSlots: doctorData?.timeSlots,
+      about: doctorData?.about,
+      photo: doctorData?.photo,
+    });
+  }, [doctorData]);
+  
   const handleInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -35,7 +52,7 @@ function Profile({ doctorData }) {
     e.preventDefault();
 
     try {
-      const res = await fetch(`${BASE_URL}/doctors/${doctorData?.data?._id}`, {
+      const res = await fetch(`${BASE_URL}/doctors/${doctorData._id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -446,11 +463,11 @@ function Profile({ doctorData }) {
         </div>
         <div className="mb-5 flex items-center gap-3">
           {formData.photo && (
-            <figure className="w-[60px] h-[60px] rounded-full border-2 border-solid border-primaryColor flex items-center justify-center">
+            <figure className="w-[60px] h-[60px] rounded-full border-2 border-solid border-primaryColor flex items-center justify-center overflow-hidden">
               <img
                 src={formData.photo}
                 alt="ProfileImg"
-                className="w-full rounded-full"
+                className="w-full rounded-full object-cover"
               />
             </figure>
           )}
